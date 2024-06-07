@@ -1,0 +1,478 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 36vw;
+}
+
+@media screen and (min-width: 600px) {
+    html {
+        scroll-padding-top: 12vw;
+    }
+}
+
+body {
+    overflow-x: hidden;
+    font-family: "Fahkwang", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1rem, 0.75vw + 0.75rem, 1.5rem);
+}
+
+header {
+    position: fixed;
+    z-index: 2;
+    height: 24vw;
+    width: 100vw;
+    background-color: #40bf80;
+    color: #FFFFFF;
+    border-bottom-left-radius: 6vw;
+    border-bottom: 0.6vw solid #FFFFFF;
+    outline: 1.2vw solid #206040;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 600px) {
+    header {
+        height: 8vw;
+        border-bottom-left-radius: 2vw;
+        border-bottom: 0.2vw solid #FFFFFF;
+        outline: 0.4vw solid #206040;
+    }
+}
+
+header a svg {
+    position: relative;
+    z-index: 2;
+    height: 36vw;
+    width: 36vw;
+    top: -0.6vw;
+    left: -0.6vw;
+    border: 0.6vw solid #FFFFFF;
+    border-radius: 0 50% 50% 50%;
+}
+
+@media screen and (min-width: 600px) {
+    header a svg {
+        height: 12vw;
+        width: 12vw;
+        top: -0.2vw;
+        left: -0.2vw;
+        border: 0.2vw solid #FFFFFF;
+    }
+}
+
+#logo-background {
+    fill: #40bf80;
+    stroke-width: 0;
+}
+
+#logo-background:hover {
+    fill: #206040;
+}
+
+#horse, #letters {
+    fill: #ffffff;
+    stroke-width: 0;
+}
+
+nav {
+    position: fixed;
+    max-height: 0;
+    width: 100vw;
+    top: 25vw;
+    overflow: hidden;
+    transition: max-height 1s ease-out;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 600px) {
+    nav {
+        position: relative;
+        max-height: none;
+        width: fit-content;
+        top: 0;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+nav a {
+    text-decoration: none;
+    text-align: center;
+    font-size: clamp(2rem, 1.5vw + 1.5rem, 3rem);
+    font-weight: 700;
+    padding: clamp(1rem, 0.75vw + 0.75rem, 1.5rem);
+    background-color: #40bf80;
+    color: #FFFFFF;
+    border-bottom: 0.6vw solid #FFFFFF;
+}
+
+@media screen and (min-width: 600px) {
+    nav a {
+        font-size: 2.5vw;
+        padding: 0 2.5vw;
+        border-bottom: initial;
+    }
+    nav a:hover {
+        color: #206040;
+    }
+}
+
+nav a:first-of-type {
+    border-top: 0.6vw solid #FFFFFF;
+}
+
+@media screen and (min-width: 600px) {
+    nav a:first-of-type {
+        border-top: none;
+    }
+}
+
+.icon {
+    cursor: pointer;
+    padding: 12vw 8vw;
+}
+
+@media screen and (min-width: 600px) {
+    .icon {
+        display: none;
+    }
+}
+
+.line {
+    background-color: #FFFFFF;
+    display: block;
+    height: 1.2vw;
+    position: relative;
+    width: 12vw;
+}
+
+.line::before, .line::after {
+    background-color: #FFFFFF;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.5s ease-out;
+    width: 100%;
+}
+
+.line::before {
+    top: -4.8vw;
+}
+
+.line::after {
+    top: 4.8vw;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+.mobile-menu:checked ~ nav {
+    max-height: 100%;
+}
+
+.mobile-menu:checked ~ .icon .line {
+    background-color: transparent;
+}
+
+.mobile-menu:checked ~ .icon .line::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.mobile-menu:checked ~ .icon .line::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+main, footer {
+    position: relative;
+    top: 36vw;
+    width: 100vw;
+}
+
+@media screen and (min-width: 600px) {
+    main, footer {
+        top: 12vw;
+    }
+}
+
+section {
+    margin-bottom: clamp(2rem, 1.5vw + 1.5rem, 3rem);
+}
+
+h1 {
+    font-size: clamp(3rem, 3vw + 2rem, 5rem);
+    padding-bottom: clamp(1.5rem, 1.5vw + 1rem, 2.5rem);
+    text-align: center;
+    color: #206040;
+}
+
+#banner div {
+    background-image: url("images/clare_hazell.jpg"), url("images/martin_smith.jpg"), url("images/ros_burgess.jpg"), url("images/clare_hazell.jpg");
+    background-position: 0 0, 100vw 0, 200vw 0, 300vw 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 150vw;
+    width: 100vw;
+    animation: carousel 12s infinite;
+}
+
+@keyframes carousel {
+    0% {
+        background-position: 0 0, 100vw 0, 200vw 0, 300vw 0;
+    }
+    25% {
+        background-position: 0 0, 100vw 0, 200vw 0, 300vw 0;
+    }
+    33.3% {
+        background-position: -100vw 0, 0 0, 100vw 0, 200vw 0;
+    }
+    58.3% {
+        background-position: -100vw 0, 0 0, 100vw 0, 200vw 0;
+    }
+    66.6% {
+        background-position: -200vw 0, -100vw 0, 0 0, 100vw 0;
+    }
+    91.6% {
+        background-position: -200vw 0, -100vw 0, 0 0, 100vw 0;
+    }
+    100% {
+        background-position: -300vw 0, -200vw 0, -100vw 0, 0 0;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    #banner div {
+        background-image: url("images/clare_hazell.jpg"), url("images/martin_smith.jpg"), url("images/ros_burgess.jpg");
+        position: relative;
+        left: -0.2vw;
+        background-position: left top, center top, right top;
+        height: 50vw;
+        width: 100.4vw;
+        border: 0.2vw solid #FFFFFF;
+        animation: none;
+    }
+}
+
+h2 {
+    font-size: clamp(2rem, 1.5vw + 1.5rem, 3rem);
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #40bf80;
+    padding: clamp(1rem, 0.75vw + 0.75rem, 1.5rem);
+    margin: clamp(1rem, 0.75vw + 0.75rem, 1.5rem) 0;
+}
+
+p, table, hr, h4 {
+    margin: clamp(1rem, 0.75vw + 0.75rem, 1.5rem) clamp(2rem, 1.5vw + 1.5rem, 3rem);
+}
+
+ul {
+    margin: clamp(1rem, 0.75vw + 0.75rem, 1.5rem) clamp(4rem, 3vw + 3rem, 6rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 1vw + 1rem, 2rem);
+    color: #206040;
+    margin: clamp(1rem, 0.75vw + 0.75rem, 1.5rem) clamp(2rem, 1.5vw + 1.5rem, 3rem);
+}
+
+td {
+    padding: 0 clamp(1rem, 0.75vw + 0.75rem, 1.5rem) 0 0;
+    vertical-align: top;
+}
+
+@media screen and (min-width: 600px) {
+    td {
+        padding: 0 clamp(2rem, 1.5vw + 1.5rem, 3rem);
+    }
+}
+
+hr {
+    height: 1.2vw;
+    background-color: #206040;
+}
+
+@media screen and (min-width: 600px) {
+    hr {
+        height: 0.4vw;
+    }
+}
+
+#results article div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+    #results article div {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+#results article div figure {
+    width: 90vw;
+    padding: 4vw;
+    background-color: #FFFFFF;
+    border: 0.2vw solid #000000;
+    box-shadow: 2vw 2vw 2vw #000000;
+}
+
+@media screen and (min-width: 600px) {
+    #results article div figure {
+        width: 40vw;
+        padding: 2vw;
+        border: 0.1vw solid #000000;
+        box-shadow: 1vw 1vw 1vw #000000;
+    }
+}
+
+#results article div figure:hover {
+    z-index: 1;
+}
+
+#results article div figure:nth-of-type(1) {
+    transform: translate(-5vw) rotate(-5deg);
+}
+
+@media screen and (min-width: 600px) {
+    #results article div figure:nth-of-type(1) {
+        transform: translate(10vw) rotate(-5deg);
+    }
+}
+
+#results article div figure:nth-of-type(2) {
+    transform: translate(5vw) rotate(10deg);
+}
+
+@media screen and (min-width: 600px) {
+    #results article div figure:nth-of-type(2) {
+        transform: translate(0vw) rotate(10deg);
+    }
+}
+
+#results article div figure:nth-of-type(3) {
+    transform: translate(-5vw) rotate(-7.5deg);
+}
+
+@media screen and (min-width: 600px) {
+    #results article div figure:nth-of-type(3) {
+        transform: translate(-10vw) rotate(-7.5deg);
+    }
+}
+
+#results article div figure img {
+    width: 82vw;
+}
+
+@media screen and (min-width: 600px) {
+    #results article div figure img {
+        width: 36vw;
+    }
+}
+
+#results article div figure figcaption h4 {
+    margin: 4vw 0 0 4vw;
+}
+
+@media screen and (min-width: 600px) {
+    #results article div figure figcaption h4 {
+        margin: 2vw 0 0 2vw;
+    }
+}
+
+#results article div figure figcaption table {
+    margin: 0 4vw 4vw 4vw;
+}
+
+@media screen and (min-width: 600px) {
+    #results article div figure figcaption table {
+        margin: 0 2vw 2vw 2vw;
+    }
+}
+
+#results article div figure figcaption table td {
+    padding: 0 clamp(0.5rem, 0.5vw + 0.5rem, 1rem) 0 0;
+}
+
+footer {
+    background-color: #40bf80;
+    height: 30vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+    footer {
+        height: 16vw;
+    }
+}
+
+footer a svg {
+    height: 18vw;
+    width: 18vw;
+}
+
+@media screen and (min-width: 600px) {
+    footer a svg {
+        height: 8vw;
+        width: 8vw;
+    }
+}
+
+#facebook-background {
+    fill: #206040;
+    stroke-width: 0;
+}
+
+#facebook-f {
+    fill: #40bf7f;
+    stroke-width: 0;
+}
+
+#facebook-f:hover {
+    fill: #ffffff;
+}
+
+#camera-outline {
+    fill: #206040;
+    stroke-width: 0;
+}
+
+#camera-face {
+    fill: #40bf7f;
+    stroke-width: 0;
+}
+
+#camera-face:hover {
+    fill: #ffffff;
+}
+
+#x-background {
+    fill: #206040;
+    stroke-width: 0;
+}
+
+#x-foreground {
+    fill: #40bf7f;
+    stroke-width: 0;
+}
+
+#x-foreground:hover {
+    fill: #ffffff;
+}
