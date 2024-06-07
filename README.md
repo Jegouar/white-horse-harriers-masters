@@ -13,7 +13,7 @@ Features include:
 - smooth scroll to page sections
 - banner with CSS animation to display three images in carousel on small screens
 - responsive orientation to results section and 'Polaroid' styling used to combine images with text
-- 
+  
 Fonts used:
 - Fahkwang, designed by Cadson Demak, from Google Fonts
 
